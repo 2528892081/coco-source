@@ -1,26 +1,21 @@
 <template>
   <div>
-    <nav-vue></nav-vue>
-  </div>  
+    <router-view />
+  </div>
 </template>
-  
+
 <script>
-import NavVue from './nav.vue';
+// import NavVue from "./nav.vue";
 export default {
-  name: 'IndexVue',
+  name: "IndexVue",
   props: {},
   components: {
-    NavVue
+    // NavVue,
   },
   data() {
-    return {
-      
-    }
-  }
-  
-}
+    return {};
+  },
+};
 </script>
 
-<style lang='less' scoped>
-  
-</style>
+<style lang="less" scoped></style>

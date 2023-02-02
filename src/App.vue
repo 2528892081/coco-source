@@ -1,17 +1,23 @@
 <template>
   <div id="app">
+    <Nav />
     <Index />
+    <Rooter />
   </div>
 </template>
 
 <script>
-import Index from "./components/index.vue"
+import nav from "./components/nav.vue";
+import Index from "./components/index.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Index
-  }
-}
+    Index,
+    Nav: nav,
+    Rooter: () => import("@/components/rooter.vue"),
+  },
+  mounted() {},
+};
 </script>
 
 <style>
