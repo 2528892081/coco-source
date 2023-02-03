@@ -7,13 +7,11 @@
 </template>
 
 <script>
-import nav from "./components/nav.vue";
-import Index from "./components/index.vue";
 export default {
   name: "App",
   components: {
-    Index,
-    Nav: nav,
+    Index:  () => import("@/components/index.vue"),
+    Nav:  () => import("@/components/nav.vue"),
     Rooter: () => import("@/components/rooter.vue"),
   },
   mounted() {},

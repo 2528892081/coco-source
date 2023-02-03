@@ -1,22 +1,22 @@
 export const navlist = [
   {
-    path: "/pages/home",
+    path: "/home",
     label: "首页",
   },
   {
-    path: "",
+    path: "/host",
     label: "单机游戏",
   },
   {
-    path: "",
+    path: "/switchGame",
     label: "switch游戏",
   },
   {
-    path: "",
+    path: "/connect",
     label: "联系客服",
   },
   {
-    path: "",
+    path: "/usingWay",
     label: "使用办法",
   },
 ];
