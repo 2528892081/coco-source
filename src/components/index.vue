@@ -1,12 +1,14 @@
 <template>
   <div>
-    <swiper></swiper>
-    <router-view />
+    <div class="body">
+      <div class="middle page">
+        <router-view />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// import NavVue from "./nav.vue";
 export default {
   name: "IndexVue",
   props: {},
@@ -19,4 +21,13 @@ export default {
 };
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.body {
+  width: 100%;
+  background-color: #eee;
+
+  .page {
+    background-color: #fff;
+  }
+}
+</style>
