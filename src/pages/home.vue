@@ -30,4 +30,8 @@ export default {
   padding: 18px;
   box-sizing: border-box;
 }
+
+.el-carousel__item.is-active {
+  z-index: 0;
+}
 </style>

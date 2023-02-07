@@ -1,30 +1,34 @@
 <template>
   <div class="nav">
     <div class="nav-box middle">
-      <div v-for="(item, idx) in navlist" :key="idx" @click="jump(item.path)">
+      <div v-for="(item, idx) in navlist" :key="idx">
         <div
           v-show="idx === 0"
           :style="{
             display: 'flex',
             padding: '0 4px',
             justifyContent: 'space-around',
-            alignItems: 'center'
+            alignItems: 'center',
           }"
+          @click="jump(item.path)"
           :class="['nav0']"
         >
-        <img
-          :style="{
-            width: '50px',
-            height: '50px',
-            verticalAlign: 'middle'
-          }"
-          :src="item.pic" alt="" />
-        <span
-          :style="{
-            fontSize: '24px',
-            fontFamily: 'JingJingTi'
-          }"
-        >{{ item.label }}</span>
+          <img
+            :style="{
+              width: '50px',
+              height: '50px',
+              verticalAlign: 'middle',
+            }"
+            :src="item.pic"
+            alt=""
+          />
+          <span
+            :style="{
+              fontSize: '24px',
+              fontFamily: 'JingJingTi',
+            }"
+            >{{ item.label }}</span
+          >
         </div>
         <div
           v-show="idx !== 0"
@@ -32,6 +36,7 @@
             display: 'inline-block',
             padding: '0 4px',
           }"
+          @click="jump(item.path)"
           :class="[item.icon, 'nav' + idx]"
         >
           {{ item.label }}
@@ -59,7 +64,7 @@ export default {
   },
   methods: {
     jump(path) {
-      this.$router.push(path);
+      this.$router.pushTo(path);
     },
   },
 };
@@ -77,13 +82,16 @@ export default {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    cursor: pointer;
 
     div {
       padding: 10px;
       font-size: 16px;
       font-weight: 700;
       transition: 0.3s all ease;
+
+      div {
+        cursor: pointer;
+      }
     }
 
     // .other:hover {

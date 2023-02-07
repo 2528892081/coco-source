@@ -14,4 +14,4 @@ lcstore.prototype.reactGetItem = (key, callback) => {
   }
 };
 
-export default lcstore;
+export { lcstore };

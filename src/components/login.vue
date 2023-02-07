@@ -1,37 +1,64 @@
 <template>
-  <div class="login other el-icon-s-custom" 
-    @mouseover="() => showPopover = true" 
-    @mouseout="() => showPopover = false"
-  >
+  <div class="login other el-icon-s-custom">
     <div v-if="token">
-      <span> </span>
+      <span :style="{ margin: '4px 0' }"> admin, 你好 </span>
     </div>
     <div v-else>
-      <span :style="{margin: '4px 0'}">游客你好</span>
+      <span :style="{ margin: '4px 0' }">游客你好</span>
     </div>
-    <div
-      v-show="showPopover"
-      class="popover"
-    >
-      1111  
+    <div v-show="showPopover" class="popover">
+      <div
+        v-show="!token"
+        v-for="(item, idx) in loginList"
+        class="item"
+        :class="item.icon"
+        :key="idx"
+        @click="jumpTo(item.path)"
+      >
+        {{ item.label }}
+      </div>
+      <div
+        v-show="token"
+        v-for="(item, idx) in userList"
+        class="item"
+        :class="item.icon"
+        :key="idx"
+        @click="jumpTo(item.path)"
+      >
+        {{ item.label }}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { capture } from "@/utils/capture";
+import { loginList } from "@/router/navList";
+import { userList } from "@/router/navList";
+// import { lcstore } from "@/utils/storage";
 export default {
   name: "LoginVue",
   data: () => {
     return {
-      token: null,
-      showPopover: false
+      token: 1,
+      showPopover: false,
+      loginList,
+      userList,
     };
   },
   mounted() {
-    this.token = this.$ls.get("token");
+    capture("click", "login", (result) => {
+      this.showPopover = result;
+    });
+    // lcstore.setItem("token", 1);
+    // this.token = lcstore.getItem("token");
     console.log(this.token);
   },
-  methods: {},
+  methods: {
+    jumpTo(path) {
+      this.$router.push(path, () => {});
+    },
+  },
   components: {},
 };
 </script>
@@ -53,9 +80,10 @@ export default {
 
   .popover {
     position: absolute;
+    z-index: 20;
     top: calc(100% + 4px);
     left: 50%;
-    width: 75px;
+    width: 100px;
     text-align: center;
     padding: 8px;
     background-color: #fff;
@@ -63,8 +91,20 @@ export default {
     border-radius: 3px;
     border: 1px solid #ccc;
     transform: translateX(-50%);
-    transition: .2s all ease;
+    transition: 0.2s all ease;
     box-shadow: 0 0 5px 0 #ccc;
+
+    .item {
+      width: 100%;
+      padding: 4px 0;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+
+    .item:hover {
+      background-color: #efefef;
+      color: #2795d5;
+    }
   }
 
   .popover::before {
@@ -81,7 +121,5 @@ export default {
   .login:hover .popover {
     // transform: translateX(-50%)translateY(2px);
   }
-
-
 }
 </style>

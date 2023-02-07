@@ -1,6 +1,11 @@
 import VueRouter from "vue-router";
 // import { Routes } from "./config";
 
+const originalPush = VueRouter.prototype.replace;
+VueRouter.prototype.replace = function replace(location) {
+  return originalPush.call(this, location).catch((err) => err);
+};
+
 const autoLoadRoutes = [];
 
 const reqRoutes = require.context("@/pages", true, /\.vue$/);
@@ -48,10 +53,5 @@ const router = new VueRouter({
   routes,
   mode: "history",
 });
-
-const originalPush = VueRouter.prototype.replace;
-VueRouter.prototype.replace = function replace(location) {
-  return originalPush.call(this, location).catch((err) => err);
-};
 
 export default router;

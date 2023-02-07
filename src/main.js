@@ -10,6 +10,12 @@ Vue.use(ElementUI);
 Vue.use(storageOptions);
 Vue.config.silent = true;
 
+Object.defineProperty(Event.prototype, "path", {
+  get() {
+    return this.composedPath();
+  },
+});
+
 new Vue({
   router,
   render: (h) => h(App),

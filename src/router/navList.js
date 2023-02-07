@@ -4,7 +4,7 @@ export const navlist = [
     path: "/home",
     icon: "house",
     label: "游戏无限",
-    pic: logo
+    pic: logo,
   },
   {
     path: "/host",
@@ -25,5 +25,47 @@ export const navlist = [
     path: "/usingWay",
     icon: "el-icon-info",
     label: "使用办法",
+  },
+];
+
+export const loginList = [
+  {
+    id: 1,
+    label: "登录",
+    path: "/signUp",
+    icon: "el-icon-turn-off",
+  },
+  {
+    id: 2,
+    label: "注册",
+    path: "/register",
+    icon: "el-icon-edit-outline",
+  },
+  {
+    id: 3,
+    label: "忘记密码",
+    path: "/forgetPassword",
+    icon: "el-icon-key",
+  },
+];
+
+export const userList = [
+  {
+    id: 1,
+    label: "个人信息",
+    path: "/polyfile",
+    icon: "el-icon-postcard",
+  },
+  {
+    id: 2,
+    label: "我的订单",
+    path: "/orderList",
+    icon: "el-icon-document",
+  },
+  {
+    id: 3,
+    label: "注销",
+    path: "/loginout",
+    icon: "el-icon-switch-button",
   },
 ];
