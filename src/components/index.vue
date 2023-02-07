@@ -11,6 +11,7 @@
 <script>
 export default {
   name: "IndexVue",
+  title: 'COA游戏无限!',
   props: {},
   components: {
     // NavVue,

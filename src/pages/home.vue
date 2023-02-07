@@ -12,6 +12,7 @@
 <script>
 export default {
   name: "HomeVue",
+  title: "首页",
   data: () => {
     return {};
   },

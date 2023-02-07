@@ -1,8 +1,10 @@
+import logo from "@/assets/icon.jpg";
 export const navlist = [
   {
     path: "/home",
     icon: "house",
-    label: "首页",
+    label: "游戏无限",
+    pic: logo
   },
   {
     path: "/host",
