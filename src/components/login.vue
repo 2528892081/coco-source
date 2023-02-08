@@ -95,15 +95,19 @@ export default {
     box-shadow: 0 0 5px 0 #ccc;
 
     .item {
+      display: flex;
+      justify-content: center;
       width: 100%;
       padding: 4px 0;
       font-size: 14px;
       border-radius: 4px;
+      transition: .3s all ease;
     }
 
     .item:hover {
       background-color: #efefef;
       color: #2795d5;
+      justify-content: space-around;
     }
   }
 
