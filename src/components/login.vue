@@ -101,7 +101,7 @@ export default {
       padding: 4px 0;
       font-size: 14px;
       border-radius: 4px;
-      transition: .3s all ease;
+      transition: 0.3s all ease;
     }
 
     .item:hover {

@@ -1,22 +1,29 @@
 <template>
   <div class="card">
-    
-  </div>  
+    <div class="img-box">
+      <img class="img" src="@/assets/lth.jpg" alt="" />
+    </div>
+    <div class="content">
+      <div class="title"></div>
+      <div class="txt"></div>
+      <div class="icon"></div>
+    </div>
+  </div>
 </template>
-  
+
 <script>
 export default {
-  name: 'cardVue',
-  props: {},
+  name: "cardVue",
+  props: {
+    item: {},
+  },
   data() {
-  return {
-  
-    }
-  }
-  
-}
+    return {};
+  },
+};
 </script>
 
-<style lang='less' scoped>
-  
+<style lang="less" scoped>
+.card {
+}
 </style>
