@@ -66,7 +66,15 @@
           lColor="#2795d5"
           title="最近上新"
         ></Title>
-        <card></card>
+        <card
+          :free="true"
+          :item="{
+            title: '艾尔登法环',
+            txt: 'aaaa',
+            date: 'aaaa',
+            downnums: '201',
+          }"
+        ></card>
       </div>
     </div>
   </div>
