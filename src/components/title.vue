@@ -110,12 +110,12 @@ i {
 
 #txt {
   transition: 0.3s all ease-out;
-  /* margin-left: 10px; */
+  margin-left: -10px;
   color: #999;
 }
 
 #title:hover #txt {
-  margin-left: 10px;
+  margin-left: 5px;
   color: #333;
 }
 </style>
