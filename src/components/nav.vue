@@ -43,6 +43,13 @@
         </div>
       </div>
       <div class="login-box">
+        <div
+          :style="{
+            cursor: 'pointer',
+          }"
+          @click="jump('/list', { params: 'search' })"
+          class="search el-icon-search"
+        ></div>
         <login></login>
       </div>
     </div>
@@ -127,8 +134,21 @@ export default {
     }
 
     .login-box {
+      display: flex;
       position: absolute;
       right: 0;
+
+      .search {
+        border-radius: 4px;
+        margin-right: 8px;
+        transition: 0.3s all ease;
+      }
+
+      .search:hover {
+        transform: translateY(-2px);
+        background-color: #2795d5;
+        color: whitesmoke;
+      }
     }
   }
 }

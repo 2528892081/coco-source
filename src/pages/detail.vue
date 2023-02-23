@@ -94,7 +94,19 @@
               <div class="link">提取码：8888 密码：ae856899</div>
             </div>
           </div>
-          <div v-show="!payed"></div>
+          <div v-show="!payed">
+            <p>
+              <i class="el-icon-goods" :style="{ color: 'red' }"></i
+              >您还不是会员或您还未购买，购买或成为会员后可下载该商品
+            </p>
+            <div class="download_link">
+              <div class="name">
+                <i class="el-icon-share" :style="{ color: 'white' }"></i
+                >积分支付
+              </div>
+              <div class="link el-icon-s-ticket"><span>5</span><i>积分</i></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -113,7 +125,7 @@ export default {
       game: {
         title: "艾尔登法环",
       },
-      payed: true,
+      payed: false,
     };
   },
   methods: {},
@@ -217,16 +229,37 @@ export default {
         padding: 16px;
         border-radius: 4px;
         display: flex;
+        align-items: center;
         background-color: #333;
 
         .name {
           width: 30%;
           color: whitesmoke;
+          i {
+            margin: 0 8px;
+          }
         }
 
         .link {
-          width: 70%;
+          width: max-content;
+          display: flex;
+          margin: 0 8px;
+          align-items: center;
+          justify-content: space-around;
           color: whitesmoke;
+
+          span {
+            margin: 0 8px;
+            color: whitesmoke;
+            font-size: 26px;
+            font-weight: 700;
+          }
+
+          i {
+            font-style: normal;
+            color: whitesmoke;
+            font-size: 12px;
+          }
         }
       }
     }
