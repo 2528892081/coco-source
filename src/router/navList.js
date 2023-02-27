@@ -7,7 +7,7 @@ export const navlist = [
     pic: logo,
   },
   {
-    path: "/host",
+    path: "/pc",
     icon: "el-icon-monitor",
     label: "单机游戏",
   },

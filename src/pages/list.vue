@@ -29,8 +29,16 @@
       </div>
     </div>
     <div class="search_content">
+      <Title
+        pre="Hot"
+        end="！"
+        preColor="#d95252"
+        endColor="#d95252"
+        lColor="#2795d5"
+        title="热门搜索"
+      ></Title>
       <div v-show="dataList.length > 0">
-        <card v-for="(item, idx) in dataList" :key="idx" :item="item"></card>
+        <card v-for="(item, idx) in dataList" :key="idx" :item="item"> </card>
       </div>
       <div></div>
     </div>
@@ -38,6 +46,7 @@
 </template>
 
 <script>
+//注意限制请求条数
 import search_bg from "@/assets/search_bg.webp";
 export default {
   name: "",
@@ -60,6 +69,7 @@ export default {
   methods: {},
   components: {
     card: () => import("@/components/card.vue"),
+    Title: () => import("@/components/title.vue"),
   },
 };
 </script>
@@ -84,9 +94,15 @@ export default {
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
     }
-
     /deep/.el-input-group__prepend .el-input__inner {
       text-align: center;
+    }
+  }
+  .search_content {
+    padding: 16px;
+
+    & > div {
+      width: 100%;
     }
   }
 }
