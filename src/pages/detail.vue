@@ -80,7 +80,7 @@
       </div>
       <div>
         <div class="download">
-          <div class="game_pay_title">游戏购买</div>
+          <div class="game_pay_title">游戏兑换</div>
           <div class="info" v-show="payed">
             <p>
               <i class="el-icon-success" :style="{ color: 'green' }"></i

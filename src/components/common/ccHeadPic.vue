@@ -38,8 +38,9 @@ export default {
   }
 
   .title_box {
-    background-color: #277794;
+    background-color: #3338;
     width: 100%;
+    height: 100px;
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
@@ -47,10 +48,11 @@ export default {
     .txt {
       position: relative;
       left: 50%;
+      line-height: 100px;
       transform: translateX(-50%);
-      font-size: 50px;
+      font-size: 30px;
       font-weight: bold;
-      color: #d8d8d8;
+      color: #fff;
     }
   }
 }

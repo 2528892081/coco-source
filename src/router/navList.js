@@ -12,7 +12,7 @@ export const navlist = [
     label: "单机游戏",
   },
   {
-    path: "/switchGame",
+    path: "/switch",
     icon: "el-icon-coordinate",
     label: "switch游戏",
   },
