@@ -82,6 +82,7 @@
 </template>
 
 <script>
+import { saxios } from "@/utils/request";
 export default {
   name: "HomeVue",
   title: "首页",
@@ -96,6 +97,12 @@ export default {
     Card: () => import("@/components/card.vue"),
     Title: () => import("@/components/title.vue"),
   },
+  created() {
+    saxios.get("/goodsManage/queryGoodsList").then((res) => {
+      console.log(res);
+    });
+  },
+  mounted() {},
 };
 </script>
 <style lang="less" scoped>
