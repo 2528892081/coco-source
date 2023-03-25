@@ -70,13 +70,7 @@
           v-for="(item, idx) in dataList"
           :key="idx"
           :free="item.isFree === 'YES'"
-          :item="{
-            title: item.goodsName,
-            category: item.goodsTag,
-            txt: item.goodsRemark,
-            date: item.createTime,
-            imgUrl: item.picUri,
-          }"
+          :item="item"
         ></card>
       </div>
     </div>

@@ -4,13 +4,13 @@
       :style="{
         height: '500px',
       }"
-      :src="lth"
+      :src="item && item.picUri"
     ></cc-img>
     <el-divider></el-divider>
     <div class="body">
       <div class="content">
         <div class="head">
-          <h1>{{ game.title }}</h1>
+          <h1>{{ item.goodsName }}</h1>
           <div class="info">
             <img
               :style="{
@@ -22,7 +22,7 @@
               alt=""
             />
             <span>快乐逍遥</span>
-            <i class="el-icon-time"></i><span>2022-12-22</span>
+            <i class="el-icon-time"></i><span>{{ item.createTime }}</span>
             <i class="el-icon-star-off"></i><span class=""></span>
           </div>
         </div>
@@ -30,9 +30,7 @@
         <section class="section">
           <p class="subtitle">游戏介绍：</p>
           <p class="txt">
-            艾尔登法环是以正统黑暗奇幻世界为舞台的动作RPG游戏。
-            走进辽阔的场景与地下迷宫探索未知，挑战困难重重的险境，享受克服困境时的成就感吧。
-            不仅如此，登场角色之间的利害关系谱成的群像剧，更是不容错过。
+            {{ item.goodsRemark }}
           </p>
         </section>
         <el-divider></el-divider>
@@ -81,7 +79,7 @@
       <div>
         <div class="download">
           <div class="game_pay_title">游戏兑换</div>
-          <div class="info" v-show="payed">
+          <div class="info" v-show="item.isFree">
             <p>
               <i class="el-icon-success" :style="{ color: 'green' }"></i
               >您已购买或已是会员，可直接下载
@@ -115,6 +113,7 @@
 </template>
 
 <script>
+import { getGoodsDetail } from "@/service/goods.js";
 import ccImg from "@/components/common/ccimg.vue";
 import lth from "@/assets/lth.jpg";
 export default {
@@ -122,6 +121,7 @@ export default {
   data: () => {
     return {
       lth,
+      item: {},
       game: {
         title: "艾尔登法环",
       },
@@ -132,6 +132,23 @@ export default {
   components: {
     ccImg,
   },
+  created() {
+    let itemNumber = this.$route.query.goodsNumberNo;
+    if (!itemNumber) {
+      alert("商品信息为空！");
+      this.$router.back();
+      return;
+    }
+    getGoodsDetail({ goodsNumberNo: itemNumber })
+      .then((res) => {
+        console.log(res);
+        this.item = res;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+  mounted() {},
 };
 </script>
 <style lang="less" scoped>

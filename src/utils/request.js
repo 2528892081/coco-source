@@ -1,6 +1,5 @@
 import axios from "axios";
 import qs from "qs";
-import Vue from "vue";
 import { store } from "./store";
 
 const baseURL = process.env.BASE_URL;
@@ -47,7 +46,7 @@ function createAxios(baseURL) {
   }, err);
 
   service.interceptors.response.use((res) => {
-    if (res.data.code === 0) {
+    if (res.data.success) {
       return res.data.value;
     } else {
       return err("请求失败");

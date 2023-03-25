@@ -1,24 +1,24 @@
 <template>
-  <div class="card" @click="jumpTo('/detail')">
+  <div class="card" @click="jumpTo('detail')">
     <div class="tag el-icon-collection-tag">
-      {{ free ? "免费" : "会员免费" }}
+      {{ item.isFree === "YES" ? "免费" : "会员免费" }}
     </div>
     <div class="img-box">
-      <img class="img" :src="item.imgUrl.replace(/^https$/g, 'http')" alt="" />
+      <img class="img" :src="item.picUri" alt="" />
     </div>
     <div class="content">
       <div class="category">
-        <span class="category_item">{{ item.category }}</span>
+        <span class="category_item">{{ item.goodsTag }}</span>
       </div>
-      <div class="title">{{ item.title }}</div>
+      <div class="title">{{ item.goodsName }}</div>
       <div class="txt">
         <!-- <span> -->
-        {{ item.txt }}
+        {{ item.goodsRemark }}
         <!-- </span> -->
       </div>
       <div class="icon">
-        <span class="downnums el-icon-download">{{ item.downnums }}</span>
-        <span class="time el-icon-time">{{ item.date }}</span>
+        <!-- <span class="downnums el-icon-download">{{ item.downnums }}</span> -->
+        <span class="time el-icon-time">{{ item.createTime }}</span>
       </div>
     </div>
   </div>
@@ -39,7 +39,13 @@ export default {
   },
   methods: {
     jumpTo(path) {
-      this.$router.pushTo(path, { params: this.item });
+      this.$router.pushTo({
+        name: path,
+        params: this.item,
+        query: {
+          goodsNumberNo: this.item.goodsNumberNo,
+        },
+      });
     },
   },
 };
