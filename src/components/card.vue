@@ -4,7 +4,7 @@
       {{ free ? "免费" : "会员免费" }}
     </div>
     <div class="img-box">
-      <img class="img" src="@/assets/lth.jpg" alt="" />
+      <img class="img" :src="item.imgUrl.replace(/^https$/g, 'http')" alt="" />
     </div>
     <div class="content">
       <div class="category">
@@ -80,6 +80,8 @@ export default {
     img {
       transition: 0.5s all ease;
       width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 

@@ -25,7 +25,7 @@ const err = (error) => {
 function createAxios(baseURL) {
   const service = axios.create({
     baseURL,
-    timeout: 100000,
+    timeout: 5000,
   });
 
   service.interceptors.request.use((config) => {
@@ -47,7 +47,12 @@ function createAxios(baseURL) {
   }, err);
 
   service.interceptors.response.use((res) => {
-    return res;
+    if (res.data.code === 0) {
+      return res.data.value;
+    } else {
+      return err("请求失败");
+    }
+    // return res;
   });
 
   return service;
