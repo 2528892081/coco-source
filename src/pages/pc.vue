@@ -2,16 +2,31 @@
   <div class="pc_page">
     <cc-head-pic title="单机游戏"> </cc-head-pic>
     <div class="page">
-      <cc-display class=""></cc-display>
+      <cc-display :list="dataList"></cc-display>
     </div>
   </div>
 </template>
 
 <script>
+import { getGoodsList } from "@/service/goods";
 export default {
   name: "",
   data: () => {
-    return {};
+    return {
+      dataList: [],
+    };
+  },
+  created() {
+    getGoodsList({
+      pageIndex: 1,
+      limit: 20,
+      condition: {
+        goodsTag: "单机游戏",
+      },
+    }).then((res) => {
+      console.log(res);
+      this.dataList = res.resultList;
+    });
   },
   methods: {},
   components: {

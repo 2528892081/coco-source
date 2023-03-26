@@ -35,6 +35,8 @@ export default {
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .title_box {
@@ -53,9 +55,9 @@ export default {
       font-size: 30px;
       font-weight: bold;
       color: #fff;
-      &::before{
+      &::before {
         margin-right: 5px;
-      } 
+      }
     }
   }
 }

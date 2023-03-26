@@ -79,12 +79,18 @@
       <div>
         <div class="download">
           <div class="game_pay_title">游戏兑换</div>
-          <div class="info" v-show="item.isFree">
+          <div class="info" v-show="item.isFree === 'YES'">
             <p>
               <i class="el-icon-success" :style="{ color: 'green' }"></i
               >您已购买或已是会员，可直接下载
             </p>
-            <div class="download_link">
+            <div
+              class="download_link"
+              data-clipboard-target=".download_link"
+              data-clipboard-action="copy"
+              @click="getDownLink()"
+              :title="item.detailDownloadUri || 'zzz'"
+            >
               <div class="name">
                 <i class="el-icon-share" :style="{ color: 'white' }"></i
                 >网盘下载
@@ -92,7 +98,7 @@
               <div class="link">提取码：8888 密码：ae856899</div>
             </div>
           </div>
-          <div v-show="!payed">
+          <div v-show="!(item.isFree === 'YES')">
             <p>
               <i class="el-icon-goods" :style="{ color: 'red' }"></i
               >您还不是会员或您还未购买，购买或成为会员后可下载该商品
@@ -128,7 +134,26 @@ export default {
       payed: false,
     };
   },
-  methods: {},
+  methods: {
+    getDownLink() {
+      let _this = this;
+      //detailDownloadUri
+      var clipboard = new ClipboardJS(".download_link", {
+        text: (trigger) => {
+          return trigger.getAttribute("title");
+        },
+      });
+
+      clipboard.on("success", function (e) {
+        _this.$message.success("链接已成功复制到剪切板！");
+        e.clearSelection();
+      });
+
+      clipboard.on("error", function () {
+        _this.$message.error("获取连接失败，请检查网络！");
+      });
+    },
+  },
   components: {
     ccImg,
   },
@@ -255,6 +280,11 @@ export default {
           i {
             margin: 0 8px;
           }
+        }
+
+        cursor: pointer;
+        &:hover {
+          background-color: #000;
         }
 
         .link {

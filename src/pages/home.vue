@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <el-carousel :interval="5000" height="200px">
+    <el-carousel :interval="5000" height="400px">
       <el-carousel-item>
         <div
           :style="{
             width: '100%',
-            height: '200px',
+            height: '400px',
             overflow: 'hidden',
           }"
         >
@@ -22,7 +22,7 @@
         <div
           :style="{
             width: '100%',
-            height: '200px',
+            height: '400px',
             overflow: 'hidden',
           }"
         >
@@ -36,26 +36,6 @@
         </div>
       </el-carousel-item>
     </el-carousel>
-    <!-- <div class="search-box">
-      <el-input
-        placeholder="搜索游戏"
-        v-model="search_value"
-        class="input-with-select"
-      >
-        <el-select
-          :style="{ width: '150px', textAlign: 'center' }"
-          v-model="select_value"
-          slot="prepend"
-          placeholder="请选择"
-        >
-          <el-option label="全部" value="0"></el-option>
-          <el-option label="单机游戏" value="1"></el-option>
-          <el-option label="switch游戏" value="2"></el-option>
-          <el-option label="其他" value="3"></el-option>
-        </el-select>
-        <el-button slot="append" icon="el-icon-search"></el-button>
-      </el-input>
-    </div> -->
     <div class="content">
       <div class="block">
         <Title

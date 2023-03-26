@@ -1,22 +1,22 @@
 <template>
-  <div class="ccCard" @click="jumpTo('/detail')">
+  <div class="ccCard" @click="jumpTo('detail')">
     <div class="tag el-icon-collection-tag">
-      {{ free ? "免费" : "会员免费" }}
+      {{ item.isFree === "YES" ? "免费" : "会员免费" }}
     </div>
     <div class="img-box">
-      <img class="img" src="@/assets/lth.jpg" alt="" />
+      <img class="img" :src="item.picUri" alt="" />
     </div>
     <div class="content">
       <div class="title">{{ item.title }}</div>
       <div class="category">
-        <span class="category_item">{{ item.category }}</span>
+        <span class="category_item">{{ item.goodsTag }}</span>
       </div>
-      <div :title="item.txt" class="txt">
-        {{ item.txt }}
+      <div :title="item.goodsRemark" class="txt">
+        {{ item.goodsRemark }}
       </div>
       <div class="icon">
-        <span class="downnums el-icon-download">{{ item.downnums }}</span>
-        <span class="time el-icon-time">{{ item.date }}</span>
+        <!-- <span class="downnums el-icon-download">{{ item.downnums }}</span> -->
+        <span class="time el-icon-time">{{ item.createTime }}</span>
       </div>
     </div>
   </div>
@@ -31,7 +31,13 @@ export default {
   },
   methods: {
     jumpTo(path) {
-      this.$router.pushTo(path, { params: this.item });
+      this.$router.pushTo({
+        name: path,
+        params: this.item,
+        query: {
+          goodsNumberNo: this.item.goodsNumberNo,
+        },
+      });
     },
   },
   components: {},
@@ -75,7 +81,9 @@ export default {
     img {
       transition: 0.5s all ease;
       height: 100%;
+      width: 100%;
       border-radius: 4px;
+      object-fit: cover;
     }
   }
 
