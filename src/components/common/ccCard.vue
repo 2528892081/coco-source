@@ -1,5 +1,5 @@
 <template>
-  <div class="ccCard">
+  <div class="ccCard" @click="jumpTo('/detail')">
     <div class="tag el-icon-collection-tag">
       {{ free ? "免费" : "会员免费" }}
     </div>
@@ -85,7 +85,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     width: 60%;
-    height: calc(270px - 150px);
+    height: 100%;
     padding: 8px;
 
     .category {

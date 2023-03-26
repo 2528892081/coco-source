@@ -53,6 +53,9 @@ export default {
       font-size: 30px;
       font-weight: bold;
       color: #fff;
+      &::before{
+        margin-right: 5px;
+      } 
     }
   }
 }

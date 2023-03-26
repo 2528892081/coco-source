@@ -1,8 +1,8 @@
 <template>
   <div class="pc_page">
-    <cc-head-pic title="单机游戏"> </cc-head-pic>
+    <cc-head-pic title="Switch游戏"> </cc-head-pic>
     <div class="page">
-      <cc-display class=""></cc-display>
+      <cc-display></cc-display>
     </div>
   </div>
 </template>
